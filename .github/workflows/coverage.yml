@@ -29,3 +29,6 @@ jobs:
           --cov=${{github.workspace}}/src
           --cov-branch
           --numprocesses=auto
+          --verbose
+      - name: Upload Code Coverage
+        uses: codecov/codecov-action@v3
