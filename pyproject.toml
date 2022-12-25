@@ -1,0 +1,45 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "pytest-cmake-presets"
+version = "0.1.0"
+description = "Execute CMake Presets via pytest"
+authors = ["Izzy Muerte <@>"]
+readme = "README.md"
+packages = [{include = "cmake_presets", from = "src"}]
+
+[tool.ruff]
+line-length = 100
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+line_length = 100
+from_first = true
+src_paths = ["src"]
+profile = "black"
+
+[tool.pyright]
+pythonPlatform = "All"
+
+[tool.poetry.plugins.pytest11]
+cmake-presets = "cmake_presets"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "^7.2.0"
+dataclasses-json = "^0.5.7"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.285"
+black = "^22.10.0"
+isort = "^5.10.1"
+ruff = "^0.0.193"
+pytest-xdist = "^3.1.0"
+pytest-cov = "^4.0.0"
