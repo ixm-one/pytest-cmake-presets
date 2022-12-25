@@ -9,7 +9,7 @@ def test_skip_if(pytester, cmake_project, cmake_presets, vendor):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(skipped=1)
 
 
@@ -21,7 +21,7 @@ def test_will_fail(pytester, cmake_project, cmake_presets, vendor):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(passed=1)
 
 
@@ -32,7 +32,7 @@ def test_fail_regex(pytester, cmake_project, cmake_presets, vendor, request):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(failed=1)
 
 
@@ -44,7 +44,7 @@ def test_pass_regex(pytester, cmake_project, cmake_presets, vendor, request):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(passed=1)
 
 
@@ -56,7 +56,7 @@ def test_skip_regex(pytester, cmake_project, cmake_presets, vendor, request):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(skipped=1)
 
 
@@ -67,7 +67,7 @@ def test_skip_return_code(pytester, cmake_project, cmake_presets, vendor):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(skipped=1)
 
 
@@ -78,7 +78,7 @@ def test_timeout(pytester, cmake_project, cmake_presets, vendor):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(passed=1)
 
 
@@ -92,5 +92,5 @@ def test_timeout_fails(pytester, cmake_project, cmake_presets, vendor):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(['--verbose'])
     result.assert_outcomes(failed=1)
