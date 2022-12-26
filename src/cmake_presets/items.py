@@ -44,7 +44,14 @@ class CMakePresetItem(Item):
         # TODO: We need to properly display the stdout/stderr of the process.
         if isinstance(excinfo.value, CalledProcessError):
             command = " ".join(map(os.fspath, excinfo.value.cmd))
-            return f"command: {command}\nreturned: {excinfo.value.returncode}\nstdout: {excinfo.value.output}\nstderr: {excinfo.value.stderr}"
+            return "\n".join(
+                [
+                    f"command: {command}",
+                    f"returned: {excinfo.value.returncode}",
+                    f"stdout: {excinfo.value.output}",
+                    f"stderr: {excinfo.value.stderr}",
+                ]
+            )
         elif isinstance(excinfo.value, TimeoutExpired):
             command = " ".join(map(os.fspath, excinfo.value.cmd))
             return f"command: {command}\ntimeout: {excinfo.value.timeout}"
