@@ -7,5 +7,5 @@ def test_skip_if(pytester, cmake_project, cmake_presets, vendor):
     pytester.maketxtfile(CMakeLists=cmake_project)
     pytester.makefile(".json", CMakePresets=json.dumps(cmake_presets))
 
-    result = pytester.runpytest()
+    result = pytester.runpytest(["--verbose"])
     result.assert_outcomes(skipped=1)

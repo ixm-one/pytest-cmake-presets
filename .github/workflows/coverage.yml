@@ -28,7 +28,7 @@ jobs:
           poetry run pytest
           --cov=${{github.workspace}}/src
           --cov-branch
-          --numprocesses=auto
-          --verbose
+          -vv
+          #--numprocesses=auto
       - name: Upload Code Coverage
         uses: codecov/codecov-action@v3
