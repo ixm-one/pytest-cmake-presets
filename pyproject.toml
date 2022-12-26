@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 name = "pytest-cmake-presets"
 version = "0.0.0.dev0"
 description = "Execute CMake Presets via pytest"
-authors = ["Izzy Muerte <@>"]
+authors = ["Izzy Muerte"]
 readme = "README.md"
 packages = [{include = "cmake_presets", from = "src"}]
 
