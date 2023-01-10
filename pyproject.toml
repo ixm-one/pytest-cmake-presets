@@ -5,9 +5,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "pytest-cmake-presets"
 version = "0.0.0.dev0"
+repository = "https://github.com/ixm-one/pytest-cmake-presets"
 description = "Execute CMake Presets via pytest"
 authors = ["Izzy Muerte"]
 readme = "README.md"
+license = "MIT"
 packages = [{include = "cmake_presets", from = "src"}]
 
 [tool.ruff]
