@@ -20,7 +20,6 @@ from .vendor import VendorProperties
 
 
 class CMakePresetItem(Item):
-
     properties: VendorProperties
     process: Optional[subprocess.CompletedProcess]
     env: Mapping[str, str]
