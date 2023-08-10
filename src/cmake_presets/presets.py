@@ -8,7 +8,7 @@ import json
 from dataclasses_json import LetterCase, config, dataclass_json
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 class Base:
     name: str
@@ -25,17 +25,17 @@ class Base:
         return self.display or self.name
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 @final
-class Configure(Base): # pyright: ignore
+class Configure(Base):  # pyright: ignore
     generator: Optional[str] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 @final
-class Build(Base): # pyright: ignore
+class Build(Base):  # pyright: ignore
     verbose: bool = False
     # This can't ever be empty, however, because of how python dataclasses
     # work, we can't *just* declare this
@@ -46,37 +46,37 @@ class Build(Base): # pyright: ignore
     clean_first: Optional[bool] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 @final
-class Test(Base): # pyright: ignore
+class Test(Base):  # pyright: ignore
     configure_preset: str = field(default_factory=str)
     overwrite_configuration_file: list[str] = field(default_factory=list)
     # TODO: fill out the rest of the fields
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 @final
-class Package(Base): # pyright: ignore
+class Package(Base):  # pyright: ignore
     pass
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 @final
 class File:
     version: int
     cmake_minimum_required: dict
-    configure_presets: list[Configure] = field(default_factory=list) # pyright: ignore
-    build_presets: list[Build] = field(default_factory=list) # pyright: ignore
+    configure_presets: list[Configure] = field(default_factory=list)  # pyright: ignore
+    build_presets: list[Build] = field(default_factory=list)  # pyright: ignore
     include: list[str] = field(default_factory=list)
     vendor: dict = field(default_factory=dict)
     path: Path = field(init=False)
 
 
-def load(path: Path) -> File: # pyright: ignore
+def load(path: Path) -> File:  # pyright: ignore
     with path.open() as presets:
         presets = File.from_dict(json.load(presets))
-        presets.path = path # pyright: ignore
+        presets.path = path  # pyright: ignore
         return presets

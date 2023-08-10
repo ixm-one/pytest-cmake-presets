@@ -60,7 +60,7 @@ class ExpectedFail(Mapping):
         return ExpectedFail(item)
 
 
-@dataclass_json(letter_case=LetterCase.KEBAB) # pyright: ignore
+@dataclass_json(letter_case=LetterCase.KEBAB)  # pyright: ignore
 @dataclass
 class VendorProperties:
     """

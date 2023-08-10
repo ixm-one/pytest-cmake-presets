@@ -20,7 +20,7 @@ from .vendor import VendorProperties
 
 
 class CMakePresetItem(Item):
-    properties: VendorProperties # pyright: ignore
+    properties: VendorProperties  # pyright: ignore
     process: Optional[subprocess.CompletedProcess]
     env: Mapping[str, str]
 
@@ -154,7 +154,7 @@ class CMakePresetsFile(File):
                 if preset.hidden:
                     continue
                 item = cls.from_parent(self, name=preset.name, preset=preset)
-                if skip_if := properties.skip_if: # pyright: ignore
+                if skip_if := properties.skip_if:  # pyright: ignore
                     item.add_marker(pytest.mark.skipif(**skip_if))
 
                 # TODO: This needs to be a hook call of some kind. That or we
