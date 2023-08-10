@@ -27,6 +27,7 @@ profile = "black"
 [tool.pyright]
 pythonPlatform = "All"
 
+
 [tool.poetry.plugins.pytest11]
 cmake-presets = "cmake_presets"
 
