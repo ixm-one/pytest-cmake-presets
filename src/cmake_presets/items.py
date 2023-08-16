@@ -186,7 +186,7 @@ def pytest_cmake_setup_preset(item: CMakePresetConfigureItem):
     if skippable := item.properties.skip_if:
         item.add_marker(pytest.mark.skipif(**skippable))
     if xfail := item.properties.xfail:
-        item.add_marker(pytest.mark.xfail(**xfail))
+        item.add_marker(pytest.mark.xfail(**xfail))  # pyright: ignore
     for filename in item.properties.required_files:
         if not filename.exists():
             reason = f"required file '{filename}' does not exist"
