@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Optional, Pattern
 
-from dataclasses_json import LetterCase, config, dataclass_json
+from dataclasses_json import DataClassJsonMixin, LetterCase, config, dataclass_json
 
 
 @dataclass
@@ -62,7 +62,7 @@ class ExpectedFail(Mapping):
 
 @dataclass_json(letter_case=LetterCase.KEBAB)  # pyright: ignore
 @dataclass
-class VendorProperties:
+class VendorProperties(DataClassJsonMixin):
     """
     These can be applied across an entire file of presets *or* a single preset.
     Fixtures are currently unused (because really *what does that end up
