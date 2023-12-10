@@ -39,7 +39,7 @@ class CMakePresetItem(Item):
         with self.run() as process:
             self.process = process
 
-    def repr_failure(self, excinfo):
+    def repr_failure(self, excinfo, style=None):
         # TODO: We need to properly display the stdout/stderr of the process.
         if isinstance(excinfo.value, CalledProcessError):
             command = " ".join(map(os.fspath, excinfo.value.cmd))
