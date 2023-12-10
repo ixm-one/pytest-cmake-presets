@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any, Optional, final
 import json
 
-from dataclasses_json import LetterCase, config, dataclass_json
+from dataclasses_json import DataClassJsonMixin, LetterCase, config, dataclass_json
 
 
 @dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
@@ -65,7 +65,7 @@ class Package(Base):  # pyright: ignore
 @dataclass_json(letter_case=LetterCase.CAMEL)  # pyright: ignore
 @dataclass
 @final
-class File:
+class File(DataClassJsonMixin):
     version: int
     cmake_minimum_required: dict
     configure_presets: list[Configure] = field(default_factory=list)  # pyright: ignore
