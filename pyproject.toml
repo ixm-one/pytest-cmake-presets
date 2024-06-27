@@ -14,6 +14,7 @@ packages = [{include = "cmake_presets", from = "src"}]
 
 [tool.ruff]
 line-length = 100
+src = ["src", "tests"]
 
 [tool.black]
 line-length = 100
@@ -27,12 +28,11 @@ profile = "black"
 [tool.pyright]
 pythonPlatform = "All"
 
-
 [tool.poetry.plugins.pytest11]
 cmake-presets = "cmake_presets"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 pytest = "^8.0.0"
 dataclasses-json = "^0.6.0"
 
@@ -41,8 +41,6 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 pyright = "^1.1.285"
-black = "^24.0.0"
-isort = "^5.10.1"
 ruff = "^0.4.0"
 pytest-xdist = "^3.1.0"
 pytest-cov = "^5.0.0"
