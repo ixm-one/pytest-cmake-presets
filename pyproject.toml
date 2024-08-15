@@ -41,7 +41,7 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 pyright = "^1.1.285"
-ruff = "^0.5.0"
+ruff = "^0.6.0"
 pytest-xdist = "^3.1.0"
 pytest-cov = "^5.0.0"
 ninja = "^1.11.1"
