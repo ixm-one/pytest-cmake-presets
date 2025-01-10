@@ -205,7 +205,7 @@ def pytest_cmake_teardown_preset(item: CMakePresetConfigureItem):
         return stdout(pattern) or stderr(pattern)
 
     def because(pattern, match):
-        return f"regex '{pattern}' matched {match.string[match.start():match.end()]}"
+        return f"regex '{pattern}' matched {match.string[match.start() : match.end()]}"
 
     if (skip_regex := item.properties.skip_regex) and (matched := match(skip_regex)):
         pytest.skip(reason=because(skip_regex, matched))
