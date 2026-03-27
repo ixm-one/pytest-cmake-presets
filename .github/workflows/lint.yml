@@ -7,15 +7,15 @@ on:
 jobs:
   skip:
     name: Skip Duplicate Actions
-    uses: ixm-one/common/.github/workflows/actions.skip.yml@main
+    uses: ixm-one/common/.github/workflows/actions.skip.yml@68418f609f1536adc3c3861b0a0b0e63d78ecc6e # main
   actions:
     name: Lint GitHub Action Workflows
-    uses: ixm-one/common/.github/workflows/actions.lint.yml@main
+    uses: ixm-one/common/.github/workflows/actions.lint.yml@68418f609f1536adc3c3861b0a0b0e63d78ecc6e # main
     needs: skip
     if: needs.skip.outputs.should-skip != 'true'
   spelling:
     name: Lint Spelling
-    uses: ixm-one/common/.github/workflows/spellcheck.yml@main
+    uses: ixm-one/common/.github/workflows/spellcheck.yml@68418f609f1536adc3c3861b0a0b0e63d78ecc6e # main
     needs: skip
     if: needs.skip.outputs.should-skip != 'true'
   python:
