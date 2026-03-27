@@ -7,7 +7,7 @@ on:
 jobs:
   skip:
     name: Skip Duplicate Actions
-    uses: ixm-one/common/.github/workflows/actions.skip.yml@main
+    uses: ixm-one/common/.github/workflows/actions.skip.yml@68418f609f1536adc3c3861b0a0b0e63d78ecc6e # main
   coverage:
     name: Code Coverage
     runs-on: ubuntu-latest
