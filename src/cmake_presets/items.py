@@ -161,6 +161,7 @@ class CMakePresetsFile(File):
                 # do the marking in the constructor class.
                 if item.properties is None:
                     yield item
+                    continue
                 if reason := item.properties.skip:
                     item.add_marker(pytest.mark.skip(reason=reason))
                 if skippable := item.properties.skip_if:
