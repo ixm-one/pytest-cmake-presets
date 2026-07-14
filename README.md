@@ -1,5 +1,10 @@
 # Overview
 
+> [!NOTE]
+> This repository hasn't been used in some time for an actual test harness.
+> It has been archived for this reason specifically, but is kept as an example
+> of implementing a custom pytest harness for CMake related options.
+
 `pytest-cmake-presets` was written to find and "test" [cmake-presets(7)][1] as
 part of the [IXM][2] test harness. Each test is a single CMake preset that
 might be part of a larger project. There are two aspects to tests: running
